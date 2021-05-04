@@ -24,10 +24,9 @@ const getPosition0to8 = async (user, board) => {
 const play = async (user, board, mark) => {
   const userPosition = await getPosition0to8(user, board)
   boardUtils.markBoard(board, userPosition, mark);
-  const winner_checked = boardUtils.check_winner(board, mark);
   console.log(board);
 
-  if (winner_checked.type === 'success') {
+  if (boardUtils.check_winner(board, mark)) {
     console.log(`${user} wins!`);
     return true
   }

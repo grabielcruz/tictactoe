@@ -18,38 +18,38 @@ const markBoard = (board, position, mark) => {
 const check_winner = (board, mark) => {
   if (board[0] === mark) {
     if (board[1] === mark && board[2] === mark) {
-      return { type: 'success', value: `${mark} wins` };
+      return true;
     }
     if (board[3] === mark && board[6] === mark) {
-      return { type: 'success', value: `${mark} wins` };
+      return true;
     }
     if (board[4] === mark && board[8] === mark) {
-      return { type: 'success', value: `${mark} wins` };
+      return true;
     }
   }
 
   if (board[2] === mark) {
     if (board[5] === mark && board[8] === mark) {
-      return { type: 'success', value: `${mark} wins` };
+      return true;
     }
     if (board[4] === mark && board[6] === mark) {
-      return { type: 'success', value: `${mark} wins` };
+      return true;
     }
   }
 
   if (board[4] === mark) {
     if (board[1] === mark && board[7] === mark) {
-      return { type: 'success', value: `${mark} wins` };
+      return true;
     }
     if (board[3] === mark && board[5] === mark) {
-      return { type: 'success', value: `${mark} wins` };
+      return true;
     }
   }
 
   if (board[6] === mark && board[7] === mark && board[8] === mark) {
-    return { type: 'success', value: `${mark} wins` };
+    return true;
   }
-  return { type: 'fail', value: 'no winner' };
+  return false;
 };
 
 const checkGameOver = (board) => {
